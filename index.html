@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STAR PROPERTIES - PRO</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Tahoma,sans-serif;
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+#loader{
+position:fixed;inset:0;display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+background:#020617;z-index:9999;
+animation:fadeout 3s forwards 2.5s;
+}
+@keyframes fadeout{to{opacity:0;visibility:hidden}}
+.loader-star{font-size:70px;animation:spin 2s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.space{
+min-height:100vh;padding:25px;
+background:
+radial-gradient(circle at 20% 20%,#7c3aed 0%,transparent 20%),
+radial-gradient(circle at 80% 30%,#2563eb 0%,transparent 20%),
+radial-gradient(circle at 50% 80%,#ec4899 0%,transparent 20%),
+linear-gradient(#020617,#0f172a,#020617);
+}
+
+.star{
+position:fixed;
+background:white;border-radius:50%;
+animation:twinkle 3s infinite alternate;
+}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+
+.shooting{
+position:fixed;width:3px;height:150px;
+background:linear-gradient(white,transparent);
+transform:rotate(45deg);
+animation:shoot 10s linear infinite;
+}
+@keyframes shoot{
+0%{top:-200px;right:-200px;opacity:0}
+10%{opacity:1}
+100%{top:120%;right:120%;opacity:0}
+}
+
+h1{text-align:center;font-size:3rem;text-shadow:0 0 25px #60a5fa}
+.subtitle{text-align:center;margin:15px 0 30px}
+
+.planet{
+width:140px;height:140px;border-radius:50%;
+margin:20px auto;
+background:radial-gradient(circle at 30% 30%,#60a5fa,#1e3a8a);
+box-shadow:0 0 40px #60a5fa;
+animation:rotateplanet 8s linear infinite;
+}
+@keyframes rotateplanet{to{transform:rotate(360deg)}}
+
+.wrap{max-width:950px;margin:auto}
+
+.item{
+margin:14px 0;
+border-radius:18px;
+overflow:hidden;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.15);
+}
+.btn{
+padding:18px;
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+font-weight:bold;
+}
+.content{
+max-height:0;overflow:hidden;
+transition:.5s;
+padding:0 18px;
+line-height:1.8;
+}
+.item.active .content{
+max-height:300px;
+padding:0 18px 18px;
+}
+.item.active .arrow{transform:rotate(90deg)}
+.arrow{transition:.4s}
+
+img.starimg{
+width:100%;
+max-width:320px;
+border-radius:15px;
+margin-top:10px;
+}
+
+.topbtn{
+position:fixed;
+bottom:20px;right:20px;
+padding:12px 16px;
+border:none;border-radius:50px;
+cursor:pointer;
+}
+
+.footer{
+text-align:center;
+margin-top:30px;
+padding:20px;
+background:rgba(255,255,255,.08);
+border-radius:15px;
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+<div class="loader-star">🌟</div>
+<h2>กำลังเข้าสู่ระบบการเรียนรู้ดาวฤกษ์</h2>
+</div>
+
+<div class="shooting"></div>
+
+<script>
+for(let i=0;i<150;i++){
+ let s=document.createElement('div');
+ s.className='star';
+ s.style.width=s.style.height=(Math.random()*3+1)+'px';
+ s.style.left=Math.random()*100+'vw';
+ s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=Math.random()*3+'s';
+ document.body.appendChild(s);
+}
+</script>
+
+<div class="space">
+<h1>🌌 STAR PROPERTIES 🌌</h1>
+<p class="subtitle">สมบัติของดาวฤกษ์ | สื่อการเรียนรู้ดาราศาสตร์</p>
+
+<div class="planet"></div>
+
+<div class="wrap">
+
+<div class="item"><div class="btn">💡 ความส่องสว่าง <span class="arrow">▶</span></div><div class="content">ปริมาณพลังงานทั้งหมดที่ดาวฤกษ์แผ่ออกมาในหนึ่งหน่วยเวลา<br><img class="starimg" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564"></div></div>
+
+<div class="item"><div class="btn">📏 โชติมาตร <span class="arrow">▶</span></div><div class="content">ค่าที่ใช้บอกความสว่างของดาวฤกษ์</div></div>
+
+<div class="item"><div class="btn">👁️ โชติมาตรปรากฏ <span class="arrow">▶</span></div><div class="content">ความสว่างที่สังเกตได้จากโลก</div></div>
+
+<div class="item"><div class="btn">🌟 โชติมาตรสัมบูรณ์ <span class="arrow">▶</span></div><div class="content">ความสว่างแท้จริงของดาวฤกษ์ที่ระยะ 10 พาร์เซก</div></div>
+
+<div class="item"><div class="btn">🎨 สีของดาวฤกษ์ <span class="arrow">▶</span></div><div class="content">สีน้ำเงินร้อนที่สุด รองลงมาคือสีขาว สีเหลือง และสีแดง</div></div>
+
+<div class="item"><div class="btn">🌡️ อุณหภูมิ <span class="arrow">▶</span></div><div class="content">อุณหภูมิส่งผลต่อสีและพลังงานของดาว</div></div>
+
+<div class="item"><div class="btn">🌈 สเปกตรัม <span class="arrow">▶</span></div><div class="content">ใช้ศึกษาส่วนประกอบและสมบัติของดาวฤกษ์</div></div>
+
+<div class="footer">
+จัดทำโดย<br><br>
+นางสาวชนาภา ปานาทำมา<br>
+ม.6/11 เลขที่ 27
+</div>
+</div>
+</div>
+
+<button class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">🚀</button>
+
+<script>
+document.querySelectorAll('.item').forEach(item=>{
+ item.querySelector('.btn').onclick=()=>item.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
